@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coccinella Labs.</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>coccinella labs</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #1e1f22;
-      --text: #ffffff;
-      --muted: #b8bdc7;
-      --accent: #f15d57;
-      --accent-dark: #c94642;
+      color-scheme: dark light;
+      --bg: #121417;
+      --panel: #24282d;
+      --text: #e6e1d8;
+      --muted: #8a8f86;
+      --line: #343a40;
     }
 
     * {
@@ -23,192 +23,96 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .page {
+    main {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav {
-      width: min(1120px, calc(100% - 2rem));
+      width: min(36rem, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 1.25rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .nav-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .nav-brand img {
-      width: 2.25rem;
-      height: 2.25rem;
-      object-fit: contain;
-    }
-
-    .hero {
-      width: min(680px, calc(100% - 2rem));
-      margin: auto;
-      padding: 4rem 0 5rem;
       display: grid;
-      grid-template-columns: 1fr;
-      align-items: center;
-      justify-items: center;
-      gap: 2rem;
-      text-align: center;
+      place-content: center;
+      gap: 1.5rem;
     }
 
-    .hero-copy {
-      max-width: 38rem;
+    .mark {
+      width: 5rem;
+      height: 5rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      display: grid;
+      place-items: center;
     }
 
-    .eyebrow {
-      margin: 0 0 1rem;
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .mark img {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+      opacity: 0.82;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(3rem, 8vw, 6.75rem);
-      line-height: 0.92;
-      font-weight: 850;
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      line-height: 1.1;
+      font-weight: 650;
       letter-spacing: 0;
     }
 
-    .intro {
-      max-width: 34rem;
-      margin: 1.25rem auto 0;
+    p {
+      max-width: 24rem;
+      margin: 0;
       color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-size: 1rem;
       line-height: 1.6;
     }
 
-    .actions {
-      margin-top: 2rem;
+    nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.85rem;
-    }
-
-    .button {
-      min-height: 3rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      padding: 0.78rem 1.1rem;
-      color: var(--text);
-      background: var(--accent);
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 750;
-      line-height: 1;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      background: var(--accent-dark);
-    }
-
-    .github-mark {
-      width: 1.1rem;
-      height: 1.1rem;
-      fill: currentColor;
-      flex: 0 0 auto;
-    }
-
-    .hero-image {
-      order: -1;
-      width: min(62vw, 16rem);
-      aspect-ratio: 1;
-      object-fit: contain;
-      display: block;
-    }
-
-    .status {
-      width: min(1120px, calc(100% - 2rem));
-      margin: 0 auto 1.5rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-      display: flex;
-      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .status a {
-      color: inherit;
+    a {
+      color: var(--muted);
       text-decoration: none;
+      text-underline-offset: 0.2em;
     }
 
-    .status a:hover,
-    .status a:focus-visible {
+    a:hover,
+    a:focus-visible {
       color: var(--text);
+      text-decoration: underline;
     }
 
-    @media (max-width: 760px) {
-      .nav {
-        padding: 1rem 0;
-      }
-
-      .hero {
-        padding: 2rem 0 3rem;
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f7f5;
+        --panel: #ffffff;
+        --text: #24282d;
+        --muted: #72776f;
+        --line: #d9dbd6;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="nav" aria-label="Primary">
-      <a class="nav-brand" href="https://github.com/Coccinella-Labs" aria-label="Coccinella Labs on GitHub">
-        <img src="999KB.png" alt="" />
-        <span>Coccinella Labs.</span>
-      </a>
-    </header>
+  <main>
+    <div class="mark" aria-hidden="true">
+      <img src="mark.png" alt="" />
+    </div>
 
-    <main class="hero">
-      <section class="hero-copy" aria-labelledby="page-title">
-        <p class="eyebrow">GitHub Organization</p>
-        <h1 id="page-title">Coccinella Labs.</h1>
-        <p class="intro">
-          A focused home for Coccinella Labs projects, experiments, and open-source work.
-        </p>
-        <div class="actions">
-          <a class="button" href="https://github.com/Coccinella-Labs/coccinella">
-            <svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.67 0 8.19c0 3.62 2.29 6.69 5.47 7.78.4.08.55-.18.55-.4 0-.2-.01-.86-.01-1.56-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.15-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.04 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.42 7.42 0 0 1 8 3.98c.68 0 1.36.09 1.99.27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.14-1.87 3.83-3.65 4.04.29.26.54.76.54 1.54 0 1.11-.01 2.01-.01 2.29 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.19C16 3.67 12.42 0 8 0Z" />
-            </svg>
-            View Repository
-          </a>
-        </div>
-      </section>
+    <section aria-labelledby="title">
+      <h1 id="title">coccinella labs</h1>
+      <p>software.</p>
+    </section>
 
-      <img class="hero-image" src="999KB.png" alt="Coccinella Labs logo" />
-    </main>
-
-    <footer class="status">
-      <a href="https://github.com/bniladridas">Founder</a>
-      <a href="LICENSE">MIT License</a>
-    </footer>
-  </div>
+    <nav aria-label="links">
+      <a href="https://github.com/Coccinella-Labs">github</a>
+      <a href="https://github.com/Coccinella-Labs/coccinella-labs.github.io">repository</a>
+      <a href="LICENSE">mit</a>
+    </nav>
+  </main>
 </body>
 </html>
